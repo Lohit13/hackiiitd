@@ -12,6 +12,9 @@ https://docs.djangoproject.com/en/1.6/ref/settings/
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
+settings_dir = os.path.dirname(__file__)
+PROJECT_ROOT = os.path.abspath(os.path.dirname(settings_dir))
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
@@ -36,6 +39,8 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'bootstrapform',
+    'bootstrap3',
     'puzzle',
 )
 
@@ -80,4 +85,23 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 
+STATIC_ROOT = './'
+
 STATIC_URL = '/static/'
+
+STATICFILES_DIRS = ( 
+    (os.path.join(PROJECT_ROOT, 'staticfiles/')),
+)
+
+TEMPLATE_DIRS = ( 
+	os.path.join(PROJECT_ROOT, 'templates/'),
+	os.path.join(PROJECT_ROOT, '/puzzle/templates/'),
+)
+
+STATICFILES_FINDERS = {
+ 	'django.contrib.staticfiles.finders.FileSystemFinder',
+	'django.contrib.staticfiles.finders.AppDirectoriesFinder'
+
+}
+
+MEDIA_ROOT = os.path.join(PROJECT_ROOT, 'static/')
