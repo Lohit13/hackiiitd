@@ -60,6 +60,7 @@
 				
 				</div><!-- /col-lg-6 -->
 			</center>
+			<button id="button" style="position:absolute;">D</button>
 				<div class="col-lg-6">
 					<!--<img class="img-responsive" src="assets/img/ipad-hand.png" alt="">-->
 				</div><!-- /col-lg-6 -->
@@ -67,7 +68,6 @@
 			</div><!-- /row -->
 		</div><!-- /container -->
 	</div><!-- /headerwrap -->
-
 </div>
 	
 
@@ -76,38 +76,9 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
     <script src="{% static "js/bootstrap.min.js" %}"></script>
-    <script type="text/javascript">
-
-var check = 0;
-
-var initiate = function(){
-  $("#text1").html("");
-  $("#text2").html("");
-  $("#thedee").css("position", "absolute");
-}
-
-var newlocation = function(){
-  var newx = (1 + Math.floor(Math.random() * $("body").innerWidth()))+"px";
-  var newy = (1 + Math.floor(Math.random() * $("body").innerHeight()))+"px";
-  $("#thedee").css('top', newy);
-  $("#thedee").css('left', newx);
-}
-
-$( "#thedee" ).mouseover(function() {
-  if (check == 1)
-  {
-    newlocation();
-  }
-  else
-  {
-    initiate();
-    check = 1;
-    newlocation();
-  }
-});
+    <script src="{% static "js/hello.js" %}"></script>
 
 
 
-    </script>
   </body>
 </html>
