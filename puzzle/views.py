@@ -9,16 +9,5 @@ import json
 
 
 def home(request):
-	f  = open("passes.txt", "r")
-	a = f.readlines()
-
-	b = []
-
-	for i in range(0, len(a)):
-		b.append(a[i].strip("\n"));
-
-	for i in b:
-		newpass = password(key = i)
-		newpass.save()
 
 	return render_to_response('1.html')

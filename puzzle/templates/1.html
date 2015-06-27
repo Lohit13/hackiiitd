@@ -51,8 +51,7 @@
       </div>
     </div>
 
-	<div id="headerwrap">
-		<div class="container">
+		<div class="container" id = "headerwrap">
 			<div class="row">
 			<center>
 			<img src="{% static "img/hack.jpg" %}"/>
@@ -62,14 +61,6 @@
 			</center>
 			</div><!-- /row -->
 		</div><!-- /container -->
-	</div><!-- /headerwrap -->
-	
-	
-<center>
-<div>
-	<h4>Made with love... by BYLD.</h4>
-</div>
-</center>
 	
 
     <!-- Bootstrap core JavaScript
@@ -77,5 +68,10 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
     <script src="{% static "js/bootstrap.min.js" %}"></script>
+          <script type="text/javascript">
+      $( document ).ready(
+        $("#headerwrap").css("min-height", $(window).height() + "px")
+      );
+      </script>
   </body>
 </html>
