@@ -54,15 +54,10 @@
 		<div class="container">
 			<div class="row">
 			<center>
-			<img src="{% static "img/hack.jpg" %}"/>
+			<img id = "thedee" src="{% static "img/hack.jpg" %}"/>
 				<div>
-					<h1>find a way in</h1>	
-					<form class="form-inline" role="form">
-					  <div class="form-group">
-					    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter your email address">
-					  </div>
-					  <button type="submit" class="btn btn-warning btn-lg">Invite Me!</button>
-					</form>					
+					<h1>Catch the D</h1>	
+				
 				</div><!-- /col-lg-6 -->
 			</center>
 				<div class="col-lg-6">
@@ -81,5 +76,38 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
     <script src="{% static "js/bootstrap.min.js" %}"></script>
+    <script type="text/javascript">
+
+var check = 0;
+
+var initiate = function(){
+  $("#text1").html("");
+  $("#text2").html("");
+  $("#thedee").css("position", "absolute");
+}
+
+var newlocation = function(){
+  var newx = (1 + Math.floor(Math.random() * $("body").innerWidth()))+"px";
+  var newy = (1 + Math.floor(Math.random() * $("body").innerHeight()))+"px";
+  $("#thedee").css('top', newy);
+  $("#thedee").css('left', newx);
+}
+
+$( "#thedee" ).mouseover(function() {
+  if (check == 1)
+  {
+    newlocation();
+  }
+  else
+  {
+    initiate();
+    check = 1;
+    newlocation();
+  }
+});
+
+
+
+    </script>
   </body>
 </html>
