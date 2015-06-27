@@ -9,5 +9,9 @@ import json
 
 
 def home(request):
-
 	return render_to_response('1.html')
+
+def helloworld(request):
+	return render_to_response('2.html')
+
+
