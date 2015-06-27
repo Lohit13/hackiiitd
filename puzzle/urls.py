@@ -6,5 +6,5 @@ admin.autodiscover()
 urlpatterns = patterns('',
     # Examples:
     url(r'^$', 'puzzle.views.home', name='home'),
-    url(r'^$', 'puzzle.views.helloworld', name='helloword'),	
+    url(r'^helloworld/$', 'puzzle.views.helloworld', name='helloword'),	
 )
