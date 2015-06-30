@@ -47,11 +47,6 @@
             <li><a href="https://www.facebook.com/events/952798898105580/"><img src="{% static "img/facebook.png" %}" style="width:40px; height:40px; margin-top:10px;"/></a></li>
             <li><a href="https://twitter.com/esyaiiitd"><img src="{% static "img/twitter.png" %}" style="width:40px; height:40px; margin-top:10px;"/></a></li>
           </ul>
-          <form id='form' method='POST' action="/last/">
-            {% csrf_token %}
-			<input type='hidden' name='query' />
-			<a href="javascript: submitform()"></a>
-		  </form>
         </div><!--/.nav-collapse -->
       </div>
 
@@ -61,13 +56,10 @@
 			<center>
 			<img id = "thedee" src="{% static "img/hack.jpg" %}"/>
 				<div>
-					<h1>Keep up with esya!&nbsp&nbsp
-					<img id="button" src="{% static "img/esya.png" %}" onclick="document.forms['form'].submit();" style="position:absolute; width:50px; height:50px;"/></h1>	
+					<h1>Almost There!</h1>	
+				
 				</div><!-- /col-lg-6 -->
 			</center>
-				<div class="col-lg-6">
-					<!--<img class="img-responsive" src="assets/img/ipad-hand.png" alt="">-->
-				</div><!-- /col-lg-6 -->
 				
 			</div><!-- /row -->
 		</div><!-- /container -->
