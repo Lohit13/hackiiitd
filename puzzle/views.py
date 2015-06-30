@@ -57,8 +57,24 @@ def keepclicking(request, path):
 
 	level = getlevel(path)
 
-	if (level == 666):
-		return HttpResponse("done")
+	if (level == 3):
+		found = 0
+		passkey = ""
+
+		for i in password.objects.all():
+			if i.state == 0:
+				found = 1
+				i.state = 1
+				# i.save()		not saving beacause in dev mode
+				passkey = i.key
+				break
+
+		if found:
+			string = "your key is " + passkey
+		else:
+			string = "sorry, keys are over"
+
+		return HttpResponse(string)
 
 	level += 1
 

@@ -4,4 +4,4 @@ from django.db import models
 
 class password(models.Model):
 	key = models.CharField(max_length = 15)
-
+	state = models.IntegerField()
