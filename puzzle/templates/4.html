@@ -54,13 +54,12 @@
 		<div class="container">
 			<div class="row">
 			<center>
-			<img id = "thedee" src="{% static "img/hack.jpg" %}"/>
+			<img src="{% static "img/hack.jpg" %}"/>
 				<div>
 
-          <form id='form' method='POST' action="/keepclicking/{{next}}">
+          <form id='form' name = "thisform" method='POST' action="/keepclicking/{{next}}">
             {% csrf_token %}
-            <input type='hidden' name='query' />
-            <input type = "submit" />
+            <input id = "but" name = "subbut" type = "submit" class = "btn btn-lg btn-success"/>
           </form>
 
 
@@ -80,7 +79,6 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
     <script src="{% static "js/bootstrap.min.js" %}"></script>
-    <script src="{% static "js/hello.js" %}"></script>
 
 
 

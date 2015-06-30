@@ -28,8 +28,6 @@ def last(request):
 	else:
 		return HttpResponseRedirect('/helloworld/')
 
-#afsdwidadjdhdbdedddj
-
 
 def getlevel(path):
 	number = ""
@@ -50,10 +48,16 @@ def getlevel(path):
 def keepclicking(request, path):
 
 	args = {}
+	args.update(csrf(request))
+
+	args["next"] = "afsdwidadjdhdbdedddj"
+
+	if request.method == "GET" and path is not "":
+		return render_to_response('4.html', args)
 
 	level = getlevel(path)
 
-	if (level == 5):
+	if (level == 666):
 		return HttpResponse("done")
 
 	level += 1
@@ -76,9 +80,8 @@ def keepclicking(request, path):
 
 	print newpath
 	args["next"] = newpath
-	args.update(csrf(request))
-	
+
 	# return HttpResponseRedirect("/keepclicking/" + newpath)
-	return render_to_response('4.html')
+	return render_to_response('4.html', args)
 
 
