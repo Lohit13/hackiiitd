@@ -15,7 +15,10 @@ def randomword(length):
    return ''.join(random.choice(string.lowercase) for i in range(length))
 
 def home(request):
-	return render_to_response('1.html')
+	args = {}
+	args.update(csrf(request))
+
+	return render_to_response('1.html', args)
 
 def helloworld(request):
 	args = {}
@@ -24,7 +27,7 @@ def helloworld(request):
 
 def last(request):
 	if request.POST:
-		return render_to_response('3.html')
+		return HttpResponseRedirect('/keepclicking/')
 	else:
 		return HttpResponseRedirect('/helloworld/')
 
