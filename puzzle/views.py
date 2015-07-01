@@ -55,9 +55,13 @@ def keepclicking(request, path):
 
 	args["next"] = "afsdwidadjdhdbdedddj"
 
-	if request.method == "GET" and path is not "":
+	if request.method == "GET":
+		return HttpResponseRedirect("/")
+	elif request.method == "POST" and len(path) < 20:
+		print "here"
 		return render_to_response('4.html', args)
 
+	print path
 	level = getlevel(path)
 
 	if (level == 3):
