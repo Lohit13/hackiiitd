@@ -73,12 +73,12 @@
 		<center>
 		<img src="{% static "img/hack.jpg" %}"/>
 			<div>
-				<h1>Found a key? Enter below!</h1>	
+				<h1>Found a key? Enter below! ( {{ left }} left)</h1>
 			</div><!-- /col-lg-6 -->
     <br>
     <form method = "POST" action = "/">
       {% csrf_token %}
-      <input type = "text" class = "form-control">
+      <input type = "text" class = "form-control" name = "keyval">
     </form>
 		</center>
 		</div><!-- /row -->

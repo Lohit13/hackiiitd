@@ -18,7 +18,31 @@ def home(request):
 	args = {}
 	args.update(csrf(request))
 
-	return render_to_response('1.html', args)
+	num = 0
+
+	for i in password.objects.all():
+		if i.state == 0:
+			num += 1
+
+	args["left"] = num
+	print num
+
+
+	if request.method == "GET":
+		return render_to_response('1.html', args)
+	else:
+
+		found = 0
+
+		for i in password.objects.all():
+			if i.key == request.POST["keyval"] and i.state == 0:
+				found = 1
+				break
+
+		if found == 1:
+			return HttpResponse("yay")
+		else:
+			return HttpResponse("nay")
 
 def helloworld(request):
 	args = {}
