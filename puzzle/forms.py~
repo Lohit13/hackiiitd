@@ -1,0 +1,14 @@
+from django import forms 
+from models import *
+
+
+class RegForm(forms.ModelForm):
+	
+	class Meta:
+		model = Registration
+		fields = ('teamname','key','name1','email1','git1','ph1','name2','email2','git2','ph2','name3','email3','git3','ph3','name4','email4','git4','ph4',)
+
+
+
+
+

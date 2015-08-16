@@ -1,0 +1,149 @@
+{% load staticfiles %}
+{% load bootstrap %}
+{% load bootstrap3 %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="hackIIITD" content="hackIIITD is hackathon hosted by Byld, the software dev group @ IIIT Delhi. hackIIITD is hosted as a part of Esya.">
+
+    <link rel="shortcut icon" href="assets/img/favicon.png">
+
+    <title>hackIIITD | ESYA'15</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static "css/bootstrap.css" %}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="{% static "css/main.css" %}" rel="stylesheet">
+
+    <!-- Fonts from Google Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,900' rel='stylesheet' type='text/css'>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+        
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/"><b>ESYA'15</b></a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="https://www.facebook.com/events/952798898105580/"><img src="{% static "img/facebook.png" %}" style="width:40px; height:40px; margin-top:10px;"/></a>
+                    </li>
+                    <li>
+                        <a href="https://twitter.com/esyaiiitd"><img src="{% static "img/twitter.png" %}" style="width:40px; height:40px; margin-top:10px;"/></a>
+                    </li>
+                </ul>
+            </div><!--/.nav-collapse -->
+            
+        </div>
+
+        <div>
+
+            <div class="row">
+                <center>
+                    <h2>Congratulations! You made it!</h2>
+                    <br>
+                    <form method = "POST" action = "/">
+                      {% csrf_token %}
+                     <h3 style="color:black;">Team Name</h3>
+                    <input type = "text" class = "form-control" name = "teamname">
+                    <h3 style="color:black;">HASH</h3>
+                    <input type = "text" class = "form-control" name = "hash">
+                        <div class="col-xs-6 col-sm-3">
+                            <h3 style="color:black;">Member 1 Name</h3>
+                            <input type = "text" class = "form-control" name = "name1">
+                        </div>
+                        <div class="col-xs-6 col-sm-3">
+                            <h3 style="color:black;">Member 1 Email</h3>
+                            <input type = "text" class = "form-control" name = "email1">
+                        </div>
+                        <div class="col-xs-6 col-sm-3">
+                            <h3 style="color:black;">Member 1 Github Handle</h3>
+                            <input type = "text" class = "form-control" name = "git1">
+                        </div>
+                        <div class="col-xs-6 col-sm-3">
+                            <h3 style="color:black;">Member 1 Phone Number</h3>
+                            <input type = "text" class = "form-control" name = "ph1">
+                        </div>
+
+                        <div class="col-xs-6 col-sm-3">
+                            <h3 style="color:black;">Member 2 Name</h3>
+                            <input type = "text" class = "form-control" name = "name2">
+                        </div>
+                        <div class="col-xs-6 col-sm-3">
+                            <h3 style="color:black;">Member 2 Email</h3>
+                            <input type = "text" class = "form-control" name = "email2">
+                        </div>
+                        <div class="col-xs-6 col-sm-3">
+                            <h3 style="color:black;">Member 2 Github Handle</h3>
+                            <input type = "text" class = "form-control" name = "git2">
+                        </div>
+                        <div class="col-xs-6 col-sm-3">
+                            <h3 style="color:black;">Member 2 Phone Number</h3>
+                            <input type = "text" class = "form-control" name = "ph2">
+                        </div>
+
+                        <div class="col-xs-6 col-sm-3">
+                            <h3 style="color:black;">Member 3 Name</h3>
+                            <input type = "text" class = "form-control" name = "name3">
+                        </div>
+                        <div class="col-xs-6 col-sm-3">
+                            <h3 style="color:black;">Member 3 Email</h3>
+                            <input type = "text" class = "form-control" name = "email3">
+                        </div>
+                        <div class="col-xs-6 col-sm-3">
+                            <h3 style="color:black;">Member 3 Github Handle</h3>
+                            <input type = "text" class = "form-control" name = "git3">
+                        </div>
+                        <div class="col-xs-6 col-sm-3">
+                            <h3 style="color:black;">Member 3 Phone Number</h3>
+                            <input type = "text" class = "form-control" name = "ph3">
+                        </div>
+
+                        <div class="col-xs-6 col-sm-3">
+                            <h3 style="color:black;">Member 4 Name</h3>
+                            <input type = "text" class = "form-control" name = "name4">
+                        </div>
+                        <div class="col-xs-6 col-sm-3">
+                            <h3 style="color:black;">Member 4 Email</h3>
+                            <input type = "text" class = "form-control" name = "email4">
+                        </div>
+                        <div class="col-xs-6 col-sm-3">
+                            <h3 style="color:black;">Member 4 Github Handle</h3>
+                            <input type = "text" class = "form-control" name = "git4">
+                        </div>
+                        <div class="col-xs-6 col-sm-3">
+                            <h3 style="color:black;">Member 4 Phone Number</h3>
+                            <input type = "text" class = "form-control" name = "ph4">
+                        </div>
+                    
+                     <input class="btn btn-default" type="submit" value="Register">
+                    </form>
+                </center>
+            </div><!-- /row -->
+            </div>
+
+	</div>
+
+
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="{% static "js/bootstrap.min.js" %}"></script>
+  </body>
+</html>

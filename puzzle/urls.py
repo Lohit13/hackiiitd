@@ -10,4 +10,5 @@ urlpatterns = patterns('',
     url(r'^last/$', 'puzzle.views.last', name='last'),	
     url(r'^keepclicking/(?P<path>.*)$', 'puzzle.views.keepclicking', name='last'),	
     url(r'^generate/$', 'puzzle.views.generate', name='generate'),
+    url(r'^check/$', 'puzzle.views.check', name='check'),
 )

@@ -8,6 +8,7 @@ from puzzle.models import *
 from os import remove, rename
 import json
 import random, string
+from .forms import RegForm
 
 key = 5380971438
 
@@ -17,7 +18,7 @@ def randomword(length):
 def home(request):
 	args = {}
 	args.update(csrf(request))
-
+	args['form'] = RegForm()
 	num = 0
 
 	for i in password.objects.all():
@@ -27,22 +28,23 @@ def home(request):
 	args["left"] = num
 	print num
 
+	return render_to_response('register.html', args)
+	
+def check(request):
 
-	if request.method == "GET":
-		return render_to_response('hello.html', args)
+	found = 0
+
+	for i in password.objects.all():
+		if i.key == request.POST["keyval"] and i.state == 0:
+			found = 1
+			break
+
+	if found == 1:
+		return HttpResponse("yay")
 	else:
+		return HttpResponse("nay")
 
-		found = 0
 
-		for i in password.objects.all():
-			if i.key == request.POST["keyval"] and i.state == 0:
-				found = 1
-				break
-
-		if found == 1:
-			return HttpResponse("yay")
-		else:
-			return HttpResponse("nay")
 
 def helloworld(request):
 	args = {}
@@ -130,6 +132,16 @@ def keepclicking(request, path):
 
 	# return HttpResponseRedirect("/keepclicking/" + newpath)
 	return render_to_response('4.html', args)
+
+def register():
+	if request.method == 'POST':
+		return HttpResponse('some')
+	else:
+		args = {}
+		args.update(csrf(request))
+		args['form'] = RegForm()
+		return render_to_response('register.html',args)
+
 
 def generate(request):
 
