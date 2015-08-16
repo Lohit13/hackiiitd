@@ -131,4 +131,19 @@ def keepclicking(request, path):
 	# return HttpResponseRedirect("/keepclicking/" + newpath)
 	return render_to_response('4.html', args)
 
+def generate(request):
+
+	for i in range(500):
+		psw = ''.join(random.SystemRandom().choice(string.ascii_uppercase + string.ascii_lowercase  + string.digits) for _ in range(15))
+		ct = password.objects.filter(key=psw).count()
+		if ct==0 :
+			p = password(key=psw)
+			p.save()
+		else:
+			pass
+
+	return HttpResponse(password.objects.all().count())
+
+
+
 
