@@ -56,7 +56,7 @@
 			<center>
 			<img src="{% static "img/hack.jpg" %}"/>
 				<div>
-
+        <h2>Just testing your patience as a hacker :)</h2>
           <form id='form' name = "thisform" method='POST' action="/keepclicking/{{next}}">
             {% csrf_token %}
               <input value = "next url" id = "but"  style="position: absolute;" name = "subbut" type = "submit" class = "btn btn-lg btn-success"/>
