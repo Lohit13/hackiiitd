@@ -1,0 +1,149 @@
+{% load staticfiles %}
+{% load bootstrap %}
+{% load bootstrap3 %}
+ <!-- FlatFy Theme - Andrea Galanti /-->
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!--[if IE 9]>    <html class="no-js ie9" lang="en"> <![endif]-->
+<!--[if gt IE 9]><!--> <html> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="description" content="Flatfy Free Flat and Responsive HTML5 Template ">
+    <meta name="author" content="">
+
+    <title>hackIIITD</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static "css/bootstrap.min.css" %}" rel="stylesheet">
+ 
+    <!-- Custom Google Web Font -->
+    <link href="{% static "font-awesome/css/font-awesome.min.css" %}" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Arvo:400,700' rel='stylesheet' type='text/css'>
+	
+    <!-- Custom CSS-->
+    <link href="{% static "css/general.css" %}" rel="stylesheet">
+	
+	 <!-- Owl-Carousel -->
+    <link href="{% static "css/custom.css" %}" rel="stylesheet">
+    <link href="{% static "css/owl.carousel.css" %}" rel="stylesheet">
+    <link href="{% static "css/owl.theme.css" %}" rel="stylesheet">
+    <link href="{% static "css/style.csss" %}" rel="stylesheet">
+    <link href="{% static "css/animate.css" %}" rel="stylesheet">
+	
+	<!-- Magnific Popup core CSS file -->
+	<link rel="stylesheet" href="{% static "css/magnific-popup.css" %}"> 
+	
+	<script src="{% static "js/modernizr-2.6.2.min.js" %}"></script>  <!-- Modernizr /-->
+</head>
+
+<body id="home">
+
+	<!-- Preloader -->
+	<div id="preloader">
+		<div id="status"></div>
+	</div>
+	
+	<!-- FullScreen -->
+    <div class="intro-header">
+		<div class="col-xs-12 text-center abcen1">
+			<h1 class="h1_home wow fadeIn" data-wow-delay="0.4s">hackIIITD</h1><br><br>
+			<ul class="list-inline intro-social-buttons">
+
+				<!--
+				<li id="download" ><a href="/stock/" class="btn  btn-lg mybutton_standard wow swing wow fadeIn" data-wow-delay="1.2s"><span class="network-name">Stock Prices</span></a>
+				</li>-->
+				<li id="download" ><a href="/marketindex/" class="btn  btn-lg mybutton_standard wow swing wow fadeIn" data-wow-delay="1.2s"><span class="network-name">Market Indexes</span></a>
+				</li>
+			</ul>
+		</div>    
+        <!-- /.container -->
+    </div>
+
+<div id="contact" class="content-section-a">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6 col-md-offset-3 text-center wrap_title">
+				<h2>Contact Us</h2>
+				<p class="lead" style="margin-top:0">A special thanks to Death.</p>
+			</div>
+			<form role="form" action="" method="post">
+				<div class="col-md-6">
+					<div class="form-group">
+						<label for="InputName">Your Name</label>
+						<div class="input-group">
+							<input class="form-control" name="InputName" id="InputName" placeholder="Enter Name" required="" type="text">
+							<span class="input-group-addon"><i class="glyphicon glyphicon-ok form-control-feedback"></i></span>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="InputEmail">Your Email</label>
+						<div class="input-group">
+							<input class="form-control" id="InputEmail" name="InputEmail" placeholder="Enter Email" required="" type="email">
+							<span class="input-group-addon"><i class="glyphicon glyphicon-ok form-control-feedback"></i></span>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="InputMessage">Message</label>
+						<div class="input-group">
+							<textarea name="InputMessage" id="InputMessage" class="form-control" rows="5" required=""></textarea>
+							<span class="input-group-addon"><i class="glyphicon glyphicon-ok form-control-feedback"></i></span>
+						</div>
+					</div>
+					<input style="visibility: visible; animation-name: tada;" name="submit" id="submit" value="Submit" class="btn wow tada btn-embossed btn-primary pull-right animated animated" type="submit">
+				</div>
+			</form>
+			<hr class="featurette-divider hidden-lg">
+			<div class="col-md-5 col-md-push-1 address">
+				<address>
+					<h3>Office Location</h3>
+					<p class="lead"><a href="https://www.google.com/maps/preview?ie=UTF-8&amp;q=The+Pentagon&amp;fb=1&amp;gl=us&amp;hq=1400+Defense+Pentagon+Washington,+DC+20301-1400&amp;cid=12647181945379443503&amp;ei=qmYfU4H8LoL2oATa0IHIBg&amp;ved=0CKwBEPwSMAo&amp;safe=on">The Pentagon<br>
+					Washington, DC 20301</a><br>
+					Phone: XXX-XXX-XXXX<br>
+					Fax: XXX-XXX-YYYY</p>
+				</address>
+				<h3>Social</h3>
+				<li class="social">
+					<a href="#"><i class="fa fa-facebook-square fa-size"> </i></a>
+					<a href="#"><i class="fa  fa-twitter-square fa-size"> </i> </a>
+					<a href="#"><i class="fa fa-google-plus-square fa-size"> </i></a>
+					<a href="#"><i class="fa fa-flickr fa-size"> </i> </a>
+				</li>
+			</div>
+		</div>
+	</div>
+</div>
+
+    <!-- JavaScript -->
+    <script src="{% static "js/jquery-1.10.2.js" %}"></script>
+    <script src="{% static "js/bootstrap.js" %}"></script>
+    <script src="{% static "js/owl.carousel.j" %}"></script>
+    <script src="{% static "js/script.js" %}"></script>
+
+	<!-- StikyMenu -->
+	<script src="{% static "js/stickUp.min.js" %}"></script>
+	<script type="text/javascript">
+	  jQuery(function($) {
+		$(document).ready( function() {
+		  $('.navbar-default').stickUp();
+		  
+		});
+	  });
+	
+	</script>
+	<!-- Smoothscroll -->
+	<script type="text/javascript" src="{% static "js/jquery.corner.js" %}"></script> 
+	<script src="{% static "js/wow.min.js" %}"></script>
+	<script>
+	 new WOW().init();
+	</script>
+	<script src="{% static "js/classie.js" %}"></script>
+	<script src="{% static "js/uiMorphingButton_inflow.js" %}"></script>
+	<!-- Magnific Popup core JS file -->
+	<script src="{% static "js/jquery.magnific-popup.js" %}"></script> 
+</body>
+
+</html>

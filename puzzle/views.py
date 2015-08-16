@@ -29,7 +29,7 @@ def home(request):
 
 
 	if request.method == "GET":
-		return render_to_response('1.html', args)
+		return render_to_response('hello.html', args)
 	else:
 
 		found = 0
