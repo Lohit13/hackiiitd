@@ -11,4 +11,5 @@ urlpatterns = patterns('',
     url(r'^keepclicking/(?P<path>.*)$', 'puzzle.views.keepclicking', name='last'),	
     url(r'^generate/$', 'puzzle.views.generate', name='generate'),
     url(r'^check/$', 'puzzle.views.check', name='check'),
+    url(r'^doge/$', 'puzzle.views.register', name='check'),
 )

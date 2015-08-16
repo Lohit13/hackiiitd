@@ -4,7 +4,7 @@ from django.db import models
 
 class password(models.Model):
 	key = models.CharField(max_length = 15)
-	state = models.IntegerField(default=0)
+	state = models.IntegerField(default=0)	# 0->unclaimed 1->claimed 2->registered
 
 class Registration(models.Model):
 	teamname = models.CharField(max_length=100)

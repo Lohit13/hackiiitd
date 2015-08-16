@@ -28,7 +28,28 @@ def home(request):
 	args["left"] = num
 	print num
 
-	return render_to_response('register.html', args)
+	
+	args["message"] = ""
+
+	if request.method == "POST":
+		found = 0
+		for i in password.objects.all():
+			if i.key == request.POST["hash"]:
+				found = 1
+				if i.state == 0:
+					args["message"] = "Oh you shrewd guy. How did you? Mail me @ kushagra14056@iiitd.ac.in"
+					return render_to_response('1.html', args)
+				elif i.state == 1:
+					return HttpResponseRedirect("/doge")
+				elif i.state == 2:
+					args["message"] = "This hash has already been claimed"
+					return render_to_response("1.html", args)
+
+		if not found:
+			args["message"] = "Wrong hash BRO"
+			return render_to_response("1.html", args)
+
+	return render_to_response('1.html', args)
 	
 def check(request):
 
@@ -90,7 +111,7 @@ def keepclicking(request, path):
 	print path
 	level = getlevel(path)
 
-	if (level == 3):
+	if (level == 616):
 		found = 0
 		passkey = ""
 
@@ -98,7 +119,7 @@ def keepclicking(request, path):
 			if i.state == 0:
 				found = 1
 				i.state = 1
-				# i.save()		not saving beacause in dev mode
+				i.save()
 				passkey = i.key
 				break
 
@@ -133,13 +154,81 @@ def keepclicking(request, path):
 	# return HttpResponseRedirect("/keepclicking/" + newpath)
 	return render_to_response('4.html', args)
 
-def register():
+def validate(email1, email2, email3, email4):
+	allreg = Registration.objects.all()
+	ct = 0
+	for i in allreg:
+		e = [i.email1,i.email2,i.email3,i.email4]
+		if email1 in e:
+			return email1
+		if email2 in e:
+			return email2
+		if email3 in e:
+			return email3
+		if email4 in e:
+			return email4
+
+	return 1
+
+
+def register(request):
+	args = {}
+	args["message"] = ""
+
 	if request.method == 'POST':
-		return HttpResponse('some')
-	else:
-		args = {}
+		teamname = request.POST['teamname']
+		key = request.POST['key']
+		name1 = request.POST['name1']
+		email1 = request.POST['email1']
+		git1 = request.POST['git1']
+		ph1 = request.POST['ph1']
+		name2 = request.POST['name2']
+		email2 = request.POST['email2']
+		git2 = request.POST['git2']
+		ph2 = request.POST['ph2']
+		name3 = request.POST['name3']
+		email3 = request.POST['email3']
+		git3 = request.POST['git3']
+		ph3 = request.POST['ph3']
+		name4 = request.POST['name4']
+		email4 = request.POST['email4']
+		git4 = request.POST['git4']
+		ph4 = request.POST['ph4']
+
+		try:
+			p = password.objects.get(key=key)
+		except:
+			args["message"] = "Invalid key!"
+			args.update(csrf(request))
+			return render_to_response('register.html',args)
+
+		if p.state == 2:
+			args["message"] = "Key already used!"
+			args.update(csrf(request))
+			return render_to_response('register.html',args)
+
+		if p.state == 0:
+			args["message"] = "You shrewd guy! Play fairly"
+			args.update(csrf(request))
+			return render_to_response('register.html',args)
+
+		ans = validate(email1,email2,email3,email4)
+
+		if(ans != 1):
+			args["message"] = ans + " has already registered in another team"
+			args.update(csrf(request))
+			return render_to_response('register.html',args)
+
+		reg = Registration(teamname=teamname,key=p,name1=name1,email1=email1,git1=git1,ph1=ph1,name2=name2,email2=email2,git2=git2,ph2=ph2,name3=name3,email3=email3,git3=git3,ph3=ph3,name4=name4,email4=email4,git4=git4,ph4=ph4)
+		reg.save()
+		p.state = 2
+		p.save()
+		args["message"] = "Registration successful"
 		args.update(csrf(request))
-		args['form'] = RegForm()
+		return render_to_response('register.html',args)
+
+	else:
+		args.update(csrf(request))
 		return render_to_response('register.html',args)
 
 
@@ -155,7 +244,3 @@ def generate(request):
 			pass
 
 	return HttpResponse(password.objects.all().count())
-
-
-
-

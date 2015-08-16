@@ -5,140 +5,215 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="hackIIITD" content="hackIIITD is hackathon hosted by Byld, the software dev group @ IIIT Delhi. hackIIITD is hosted as a part of Esya.">
-
+    <meta name="description" content="">
+    <meta name="author" content="">
     <link rel="shortcut icon" href="assets/img/favicon.png">
 
-    <title>hackIIITD | ESYA'15</title>
+    <style type="text/css">
+       #your_col {
+          border-left: 1px solid black;
+       }
+    </style>
+
+    <title>FLATTY - Free Bootstrap 3 Landing Page</title>
 
     <!-- Bootstrap core CSS -->
     <link href="{% static "css/bootstrap.css" %}" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="{% static "css/main.css" %}" rel="stylesheet">
+    <link href="{% static "css/main.css" %}"rel="stylesheet">
 
     <!-- Fonts from Google Fonts -->
     <link href='http://fonts.googleapis.com/css?family=Lato:300,400,900' rel='stylesheet' type='text/css'>
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
   </head>
 
   <body>
 
     <!-- Fixed navbar -->
     <div class="navbar navbar-default navbar-fixed-top">
-        <div class="container">
-        
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="/"><b>ESYA'15</b></a>
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a href="https://www.facebook.com/events/952798898105580/"><img src="{% static "img/facebook.png" %}" style="width:40px; height:40px; margin-top:10px;"/></a>
-                    </li>
-                    <li>
-                        <a href="https://twitter.com/esyaiiitd"><img src="{% static "img/twitter.png" %}" style="width:40px; height:40px; margin-top:10px;"/></a>
-                    </li>
-                </ul>
-            </div><!--/.nav-collapse -->
-            
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/"><b>hackIIITD</b></a>
         </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a class="navbar-brand" href="http://esya.iiitd.edu.in">ESYA '15</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
 
-        <div>
-
+    <div id="headerwrap">
+        <div class="container">
             <div class="row">
-                <center>
-                    <h2>Congratulations! You made it!</h2>
-                    <br>
-                    <form method = "POST" action = "/">
-                      {% csrf_token %}
-                     <h3 style="color:black;">Team Name</h3>
-                    <input type = "text" class = "form-control" name = "teamname">
-                    <h3 style="color:black;">HASH</h3>
-                    <input type = "text" class = "form-control" name = "hash">
-                        <div class="col-xs-6 col-sm-3">
-                            <h3 style="color:black;">Member 1 Name</h3>
-                            <input type = "text" class = "form-control" name = "name1">
-                        </div>
-                        <div class="col-xs-6 col-sm-3">
-                            <h3 style="color:black;">Member 1 Email</h3>
-                            <input type = "text" class = "form-control" name = "email1">
-                        </div>
-                        <div class="col-xs-6 col-sm-3">
-                            <h3 style="color:black;">Member 1 Github Handle</h3>
-                            <input type = "text" class = "form-control" name = "git1">
-                        </div>
-                        <div class="col-xs-6 col-sm-3">
-                            <h3 style="color:black;">Member 1 Phone Number</h3>
-                            <input type = "text" class = "form-control" name = "ph1">
-                        </div>
-
-                        <div class="col-xs-6 col-sm-3">
-                            <h3 style="color:black;">Member 2 Name</h3>
-                            <input type = "text" class = "form-control" name = "name2">
-                        </div>
-                        <div class="col-xs-6 col-sm-3">
-                            <h3 style="color:black;">Member 2 Email</h3>
-                            <input type = "text" class = "form-control" name = "email2">
-                        </div>
-                        <div class="col-xs-6 col-sm-3">
-                            <h3 style="color:black;">Member 2 Github Handle</h3>
-                            <input type = "text" class = "form-control" name = "git2">
-                        </div>
-                        <div class="col-xs-6 col-sm-3">
-                            <h3 style="color:black;">Member 2 Phone Number</h3>
-                            <input type = "text" class = "form-control" name = "ph2">
-                        </div>
-
-                        <div class="col-xs-6 col-sm-3">
-                            <h3 style="color:black;">Member 3 Name</h3>
-                            <input type = "text" class = "form-control" name = "name3">
-                        </div>
-                        <div class="col-xs-6 col-sm-3">
-                            <h3 style="color:black;">Member 3 Email</h3>
-                            <input type = "text" class = "form-control" name = "email3">
-                        </div>
-                        <div class="col-xs-6 col-sm-3">
-                            <h3 style="color:black;">Member 3 Github Handle</h3>
-                            <input type = "text" class = "form-control" name = "git3">
-                        </div>
-                        <div class="col-xs-6 col-sm-3">
-                            <h3 style="color:black;">Member 3 Phone Number</h3>
-                            <input type = "text" class = "form-control" name = "ph3">
-                        </div>
-
-                        <div class="col-xs-6 col-sm-3">
-                            <h3 style="color:black;">Member 4 Name</h3>
-                            <input type = "text" class = "form-control" name = "name4">
-                        </div>
-                        <div class="col-xs-6 col-sm-3">
-                            <h3 style="color:black;">Member 4 Email</h3>
-                            <input type = "text" class = "form-control" name = "email4">
-                        </div>
-                        <div class="col-xs-6 col-sm-3">
-                            <h3 style="color:black;">Member 4 Github Handle</h3>
-                            <input type = "text" class = "form-control" name = "git4">
-                        </div>
-                        <div class="col-xs-6 col-sm-3">
-                            <h3 style="color:black;">Member 4 Phone Number</h3>
-                            <input type = "text" class = "form-control" name = "ph4">
-                        </div>
-                    
-                     <input class="btn btn-default" type="submit" value="Register">
-                    </form>
-                </center>
+                <div class="col-lg-6">
+                    <h1>Congratulations!<br/>
+                    You made it.</h1>             
+                </div><!-- /col-lg-6 -->
+                
+                <div class="col-lg-6">
+                    <h1>{{message}}<br/>
+                </div><!-- /col-lg-6 -->
+                
             </div><!-- /row -->
+        </div><!-- /container -->
+    </div><!-- /headerwrap -->
+    
+    
+    <div class="container">
+        <div class="row mt centered">
+            <div class="col-lg-6 col-lg-offset-3">
+                <h1>Please register your team below.</h1>
+                <h3>You will be notified via email whether you are among the first 120.</h3>
             </div>
+        </div><!-- /row -->
+    
+    </div><!--/container -->
+    
+    <div class="container">
+        <form method = "POST" action = "/doge/">
+            {% csrf_token %}
+        <hr>
+        <div class = "row centered">
+            <div class = "col-lg-3"></div>
+            <div class = "col-lg-3">
+                <select class="form-control" name = "size" >
+                    <option>Select team size</option>
+                    <option value = "1">1</option>
+                    <option value = "2">2</option>
+                    <option value = "3">3</option>
+                    <option value = "4">4</option>
+                </select>
+            </div>
+            <div class="col-lg-3">
+              <div class="form-group">
+                <input type="name" class="form-control" name="key" placeholder="Key">
+              </div>
+            </div>
+            <div class="col-lg-3">
+              <div class="form-group">
+                <input type="name" class="form-control" name="teamname" placeholder="Team Name">
+              </div>
+            </div>
+        </div>
+        <hr>
+        <div class="row centered">
+            <div class="col-lg-3">
+              <div class="form-group">
+                <input type="email" class="form-control" name="email1" placeholder="Member one email">
+              </div>
+            </div>
+            <div class="col-lg-3">
+              <div class="form-group">
+                <input type="name" class="form-control" name="name1" placeholder="Name">
+              </div>
+            </div>
+            <div class="col-lg-3">
+              <div class="form-group">
+                <input type="name" class="form-control" name="git1" placeholder="Github handle (ex. kush789)">
+              </div>
+            </div>
+            <div class="col-lg-3">
+              <div class="form-group">
+                <input type="name" class="form-control" name="ph1" placeholder="Mobile number">
+              </div>
+            </div>
+        </div><!-- /row -->
+        <hr>
+        <div class="row centered">
+            <div class="col-lg-3">
+              <div class="form-group">
+                <input type="email" class="form-control" name="email2" placeholder="Member two email">
+              </div>
+            </div>
+            <div class="col-lg-3">
+              <div class="form-group">
+                <input type="name" class="form-control" name="name2" placeholder="Name">
+              </div>
+            </div>
+            <div class="col-lg-3">
+              <div class="form-group">
+                <input type="name" class="form-control" name="git2" placeholder="Github handle (ex. kush789)">
+              </div>
+            </div>
+            <div class="col-lg-3">
+              <div class="form-group">
+                <input type="name" class="form-control" name="ph2" placeholder="Mobile number">
+              </div>
+            </div>
+        </div><!-- /row -->
+        <hr>
+        <div class="row centered">
+            <div class="col-lg-3">
+              <div class="form-group">
+                <input type="email" class="form-control" name="email3" placeholder="Member three email">
+              </div>
+            </div>
+            <div class="col-lg-3">
+              <div class="form-group">
+                <input type="name" class="form-control" name="name3" placeholder="Name">
+              </div>
+            </div>
+            <div class="col-lg-3">
+              <div class="form-group">
+                <input type="name" class="form-control" name="git3" placeholder="Github handle (ex. kush789)">
+              </div>
+            </div>
+            <div class="col-lg-3">
+              <div class="form-group">
+                <input type="name" class="form-control" name="ph3" placeholder="Mobile number">
+              </div>
+            </div>
+        </div><!-- /row -->
+        <hr>
+        <div class="row centered">
+            <div class="col-lg-3">
+              <div class="form-group">
+                <input type="email" class="form-control" name="email4" placeholder="Member four email">
+              </div>
+            </div>
+            <div class="col-lg-3">
+              <div class="form-group">
+                <input type="name" class="form-control" name="name4" placeholder="Name">
+              </div>
+            </div>
+            <div class="col-lg-3">
+              <div class="form-group">
+                <input type="name" class="form-control" name="git4" placeholder="Github handle (ex. kush789)">
+              </div>
+            </div>
+            <div class="col-lg-3">
+              <div class="form-group">
+                <input type="name" class="form-control" name="ph4" placeholder="Mobile number">
+              </div>
+            </div>
+        </div><!-- /row -->
+        <center>
+            <button type="submit" class="btn btn-warning btn-lg">Go</button>
+        </center>
+        <hr>
+        </form>
+    </div><!-- /container -->
 
-	</div>
-
-
-
+    <div class="container">
+        <p class="centered">With<i class="fa fa-heart"></i>from Byld</p>
+    </div><!-- /container -->
+    
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
