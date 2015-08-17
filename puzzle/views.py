@@ -108,7 +108,7 @@ def keepclicking(request, path):
 	print path
 	level = getlevel(path)
 
-	if (level == 616):
+	if (level == 193):
 		found = 0
 		passkey = ""
 
@@ -242,7 +242,7 @@ def register(request):
 		left = int(f.read())
 		left -= int(request.POST["size"])
 		f.close()
-		
+
 		f = open("total.txt", "w")
 		f.write(str(left))
 		f.close()
