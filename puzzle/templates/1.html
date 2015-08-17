@@ -83,14 +83,15 @@
 				<div class="col-lg-6">
 					<h1>Found a hash?<br>Enter below to reserve your spot!</h1>
 					<br><br>
-					{% if left > 0%}
+					{% if left > 0 %}
 					<form class="form-inline" role="form" method = "POST" action = "/">
 						{% csrf_token %}
 					  <div class="form-group">
 					    <input class="form-control" id="hash" name = "hash" placeholder="Enter your hash">
 					  </div>
-					  <button type="submit" class="btn btn-warning btn-lg">Go</button>
+					  <button type="submit" class="btn btn-warning btn-lg">Go ({{ left }} spots left)</button>
 					</form>	
+
 					{% else %}
 					<h1>Sorry, all tickets have been sold!</h1>
 					{% endif %}				
