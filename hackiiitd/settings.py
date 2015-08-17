@@ -23,11 +23,11 @@ PROJECT_ROOT = os.path.abspath(os.path.dirname(settings_dir))
 SECRET_KEY = 's)xdv+$-de4sc$ko*58z$35cdowwpj(x+quo+o0uw&fzt*$6yr'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 TEMPLATE_DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['in.hackiiitd.in']
 
 
 # Application definition
@@ -105,8 +105,3 @@ STATICFILES_FINDERS = {
 }
 
 MEDIA_ROOT = os.path.join(PROJECT_ROOT, 'static/')
-
-STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
-
-STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
-
