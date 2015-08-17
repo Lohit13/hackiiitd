@@ -238,7 +238,14 @@ def register(request):
 		p.state = 2
 		p.save()
 
-
+		f = open("total.txt", "r")
+		left = int(f.read())
+		left -= int(request.POST["size"])
+		f.close()
+		
+		f = open("total.txt", "w")
+		f.write(str(left))
+		f.close()
 
 		args["message"] = "Registration successful"
 		args.update(csrf(request))
