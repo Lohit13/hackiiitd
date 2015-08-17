@@ -21,14 +21,11 @@ def home(request):
 	args['form'] = RegForm()
 	num = 0
 
-	for i in password.objects.all():
-		if i.state == 0:
-			num += 1
+	f = open("total.txt", 'r')
+	num = int(f.read())
 
 	args["left"] = num
-	print num
 
-	
 	args["message"] = ""
 
 	if request.method == "POST":
@@ -159,15 +156,22 @@ def validate(email1, email2, email3, email4):
 	ct = 0
 	for i in allreg:
 		e = [i.email1,i.email2,i.email3,i.email4]
-		if email1 in e:
+		if email1 in e and email1 != "":
 			return email1
-		if email2 in e:
+		if email2 in e and email2 != "":
 			return email2
-		if email3 in e:
+		if email3 in e and email3 != "":
 			return email3
-		if email4 in e:
+		if email4 in e and email4 != "":
 			return email4
 
+	return 1
+
+def validate_team(name):
+	allreg = Registration.objects.all()
+	for i in allreg:
+		if i.teamname == name:
+			return 0
 	return 1
 
 
@@ -219,10 +223,23 @@ def register(request):
 			args.update(csrf(request))
 			return render_to_response('register.html',args)
 
-		reg = Registration(teamname=teamname,key=p,name1=name1,email1=email1,git1=git1,ph1=ph1,name2=name2,email2=email2,git2=git2,ph2=ph2,name3=name3,email3=email3,git3=git3,ph3=ph3,name4=name4,email4=email4,git4=git4,ph4=ph4)
+		ans = validate_team(teamname)
+
+		if (ans == 0):
+			args["message"] = teamname + " has already been taken"
+			args.update(csrf(request))
+			return render_to_response('register.html',args)
+
+		reg = Registration(teamname=teamname, key=p, name1=name1, email1=email1, git1=git1,
+						   ph1=ph1, name2=name2, email2=email2, git2=git2, ph2=ph2, name3=name3,
+						   email3=email3, git3=git3, ph3=ph3, name4=name4, email4=email4,
+						   git4=git4, ph4=ph4)
 		reg.save()
 		p.state = 2
 		p.save()
+
+
+
 		args["message"] = "Registration successful"
 		args.update(csrf(request))
 		return render_to_response('register.html',args)
@@ -234,7 +251,7 @@ def register(request):
 
 def generate(request):
 
-	for i in range(500):
+	for i in range(60):
 		psw = ''.join(random.SystemRandom().choice(string.ascii_uppercase + string.ascii_lowercase  + string.digits) for _ in range(15))
 		ct = password.objects.filter(key=psw).count()
 		if ct==0 :
@@ -243,4 +260,18 @@ def generate(request):
 		else:
 			pass
 
+	f = open("total.txt", "w")
+	f.write(str(60))
+	f.close()
+
 	return HttpResponse(password.objects.all().count())
+
+def deleteall(request):
+
+	for i in password.objects.all():
+		i.delete()
+	f = open("total.txt", "w")
+	f.write(str(0))
+	f.close()
+
+	return HttpResponse("ok")
