@@ -27,7 +27,7 @@ DEBUG = False
 
 TEMPLATE_DEBUG = True
 
-ALLOWED_HOSTS = ['in.hackiiitd.in']
+ALLOWED_HOSTS = ['.hackiiitd.in']
 
 
 # Application definition

@@ -108,7 +108,7 @@ def keepclicking(request, path):
 	print path
 	level = getlevel(path)
 
-	if (level == 193):
+	if (level == 308):
 		found = 0
 		passkey = ""
 
